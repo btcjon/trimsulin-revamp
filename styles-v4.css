@@ -246,30 +246,21 @@ section { position: relative; }
 }
 .hero-sub {
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--color-text);
   margin-bottom: var(--space-6);
-  max-width: 480px;
+  max-width: 520px;
+}
+.hero-sub-line {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+.hero-sub-detail {
+  display: block;
+  margin-top: var(--space-4);
 }
 .hero-actions { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
-.hero-trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-5);
-  margin-top: var(--space-3);
-  margin-bottom: var(--space-5);
-  align-items: center;
-}
-.hero-trust-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-muted);
-}
-.hero-trust-item svg { color: var(--color-accent); flex-shrink: 0; }
-.hero-trust-stars { color: #F59E0B; letter-spacing: 2px; font-size: 14px; }
 .hero-image-wrap {
   height: 100%;
   min-height: 92vh;
@@ -295,29 +286,36 @@ section { position: relative; }
   background: var(--color-bg);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: var(--space-4) 0;
+  padding: var(--space-5) 0;
 }
 .trust-bar-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-4);
 }
 .trust-item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  font-size: 13px;
-  font-weight: 600;
+  gap: var(--space-3);
   color: var(--color-navy);
-  white-space: nowrap;
-  padding: var(--space-2) var(--space-6);
-}
-.trust-item + .trust-item {
-  border-left: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-5);
+  min-height: 72px;
+  background: var(--color-bg-tint);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 20px rgba(15, 51, 68, .06);
 }
 .trust-item svg { color: var(--color-accent); flex-shrink: 0; }
+.trust-item-text {
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+.trust-item-text sup {
+  font-size: 11px;
+  vertical-align: super;
+}
 
 /* ============================================================
    S3 — PROBLEM
@@ -330,7 +328,11 @@ section { position: relative; }
   text-align: center;
   margin-bottom: var(--space-8);
 }
-.problem-section .section-header h2 { color: white; }
+.problem-section .section-header h2 {
+  color: white;
+  max-width: 980px;
+  margin-inline: auto;
+}
 .problem-section .kicker { color: var(--color-accent); }
 
 /* Row-by-row comparison table */
@@ -368,13 +370,16 @@ section { position: relative; }
   font-size: 15px;
   font-weight: 700;
   color: white;
+  line-height: 1.35;
+  max-width: 280px;
 }
 .problem-vs-badge {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: rgba(255,255,255,.2);
-  letter-spacing: .04em;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 .problem-compare-rows {}
 .problem-compare-row {
@@ -519,13 +524,15 @@ section { position: relative; }
 }
 .hiw-product-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3vw, 38px);
+  font-size: clamp(24px, 2.5vw, 34px);
   font-weight: 600;
   color: var(--color-accent);
   text-align: center;
   padding: var(--space-6) var(--space-5) var(--space-3);
   letter-spacing: -.01em;
-  line-height: 1;
+  line-height: 1.08;
+  max-width: 12ch;
+  min-height: 2.2em;
 }
 .hiw-product-title sup {
   font-size: 14px;
@@ -541,6 +548,10 @@ section { position: relative; }
   text-align: center;
   padding: var(--space-3) var(--space-5);
   line-height: 1.35;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .hiw-product-img-wrap {
   width: 100%;
@@ -692,22 +703,41 @@ section { position: relative; }
   max-width: 480px;
   opacity: .8;
 }
-.stats-disclaimer {
-  font-size: 11px;
-  color: var(--color-muted);
-  text-align: center;
-  padding: var(--space-2) var(--space-5) 0;
-  margin-inline: auto;
-  line-height: 1.5;
+.hero-price-note {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-navy);
+  opacity: 1;
+  line-height: 1.4;
 }
-.testimonial-disclaimer {
-  font-size: 11px;
-  color: var(--color-muted);
-  text-align: left;
-  padding: var(--space-4) var(--space-5) 0;
-  max-width: 680px;
-  margin-inline: auto;
-  line-height: 1.6;
+.testimonial-quotes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  max-width: 1180px;
+  margin: var(--space-5) auto var(--space-7);
+  padding: 0 var(--space-5);
+}
+.testimonial-quote-card {
+  margin: 0;
+  padding: var(--space-5);
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+.testimonial-quote-card blockquote {
+  margin: 0 0 var(--space-3);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--color-navy);
+}
+.testimonial-quote-card figcaption {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
 /* ============================================================
@@ -787,12 +817,13 @@ section { position: relative; }
   font-weight: 600;
   color: var(--color-accent);
   margin-bottom: var(--space-5);
-  text-transform: uppercase;
-  letter-spacing: .06em;
+  text-transform: none;
+  letter-spacing: .01em;
 }
 .product-hero-desc {
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
   color: var(--color-text);
   margin-bottom: var(--space-6);
 }
@@ -828,14 +859,6 @@ section { position: relative; }
   color: var(--color-muted);
 }
 .product-hero-cta { display: flex; flex-direction: column; gap: var(--space-3); }
-.product-hero-guarantee {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: 13px;
-  color: var(--color-muted);
-}
-.product-hero-guarantee svg { color: var(--color-accent); }
 
 @media (max-width: 768px) {
   .product-hero { grid-template-columns: 1fr; }
@@ -857,30 +880,6 @@ section { position: relative; }
   overflow: hidden;
 }
 .testimonials-section .section-header { margin-bottom: var(--space-5); }
-.testimonials-stats {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-8);
-  margin-bottom: var(--space-7);
-  flex-wrap: wrap;
-}
-.testimonials-stat {
-  text-align: center;
-}
-.testimonials-stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--color-accent);
-  display: block;
-  line-height: 1;
-}
-.testimonials-stat-label {
-  font-size: 13px;
-  color: var(--color-muted);
-  font-weight: 500;
-  margin-top: var(--space-1);
-}
 .results-marquee {
   width: 100%;
   overflow: hidden;
@@ -1204,17 +1203,13 @@ section { position: relative; }
 }
 .offer-check-item svg { color: var(--color-accent); flex-shrink: 0; }
 .offer-cta-group { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
-.offer-security {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: 13px;
-  color: rgba(255,255,255,.45);
-  margin-top: var(--space-2);
+.offer-inline-note {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.72);
 }
-.offer-security svg { color: var(--color-accent); }
-.offer-section .btn--ghost { color: rgba(255,255,255,.55); text-decoration-color: rgba(255,255,255,.25); }
-.offer-section .btn--ghost:hover { color: rgba(255,255,255,.85); }
 
 /* ============================================================
    S12 — EMAIL CAPTURE
@@ -1340,6 +1335,14 @@ section { position: relative; }
   line-height: 1.4;
 }
 .footer-col ul a:hover { color: white; }
+.footer-study-note {
+  margin: 0;
+  padding: 0 0 var(--space-6);
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.44);
+  max-width: 720px;
+}
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.08);
   padding: var(--space-5) 0;
@@ -1560,7 +1563,7 @@ section { position: relative; }
     order: 2;
   }
   .hero-sub { margin-inline: auto; }
-  .hero-trust { justify-content: center; }
+  .hero-price-note { margin-inline: auto; }
   .hero-image-wrap { order: 1; min-height: 60vw; }
   .hero-bg-desktop { display: none; }
   .hero-bg-mobile { display: block; }
@@ -1579,7 +1582,11 @@ section { position: relative; }
   .ing-modal-backdrop { padding: var(--space-4); align-items: flex-end; }
 
   /* Trust bar */
-  .trust-bar-inner { gap: var(--space-3) var(--space-5); }
+  .trust-bar-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+  .trust-item { min-height: 0; }
+
+  /* Testimonials */
+  .testimonial-quotes { grid-template-columns: 1fr; }
 
   /* Problem */
   .problem-cards { grid-template-columns: 1fr; }
@@ -1608,6 +1615,10 @@ section { position: relative; }
 
   /* Offer */
   .offer-card { padding: var(--space-7) var(--space-5); }
+  .offer-inline-note {
+    line-height: 1.6;
+    text-align: center;
+  }
 
   /* Email */
   .email-form { flex-direction: column; }
@@ -1625,8 +1636,7 @@ section { position: relative; }
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
   .footer-brand-col { grid-column: span 1; }
-  .trust-bar-inner { gap: var(--space-3); }
-  .hero-trust { flex-direction: column; gap: var(--space-3); }
+  .trust-bar-inner { grid-template-columns: 1fr; gap: var(--space-3); }
   .offer-check-item { font-size: 14px; }
 
   /* Testimonial result cards */
@@ -1637,14 +1647,16 @@ section { position: relative; }
 
   /* HIW product cards */
   .hiw-product-card { padding: var(--space-4) var(--space-4) var(--space-5); }
+  .hiw-product-title {
+    max-width: none;
+    min-height: 0;
+  }
+  .hiw-product-subtitle { min-height: 0; }
 
   /* Ingredients deep dive */
   .ing-deep-item { padding: var(--space-5) var(--space-4); gap: var(--space-3); }
   .ing-deep-num { font-size: 30px; min-width: 36px; }
   .ing-deep-body h3 { font-size: 16px; }
-
-  /* Product guarantee strip — wrap gracefully */
-  .product-hero-guarantee { flex-wrap: wrap; gap: var(--space-2); font-size: 12px; }
 
   /* Problem-sub quote */
   .problem-sub { font-size: 18px; }
